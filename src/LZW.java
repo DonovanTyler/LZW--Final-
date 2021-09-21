@@ -5,6 +5,7 @@ import java.util.*;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -139,7 +140,7 @@ public class LZW {
 		
 	}
 	//decompresses from Array of ints (ex: [97,98,257])
-	public String decompressFromInput(List<Integer> compressedInput) {
+	public String decompressFromInput(List<Integer> compressedInput) throws FileNotFoundException{
 
 		int dictionarySize = 256;
 		Map<Integer,String> dictionary = buildDictionaryForDecompression(dictionarySize);
@@ -168,7 +169,9 @@ public class LZW {
 
 			word = entry;
 		}
-
+		try (PrintWriter out = new PrintWriter("Decode_Output.txt")) {
+		    out.println(result.toString());
+		}
 		return result.toString();
 	}
 

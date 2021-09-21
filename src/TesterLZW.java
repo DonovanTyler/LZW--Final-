@@ -15,7 +15,7 @@ public class TesterLZW {
 		//Note: this throws an error because the decoded int string doesn't seem to be correct
 		List<Integer> sampleInput = Arrays.asList(97, 97, 98, 257, 259, 99, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);;
 		//Proof that my decompression works:
-		System.out.println(john.decompressFromInput(sampleInput));
+		john.decompressFromInput(sampleInput);
 		// ...
 		long finish = System.nanoTime();
 		long timeElapsed = finish - startTime;
