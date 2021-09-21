@@ -81,8 +81,6 @@ public class LZW {
 			}
 
 		}
-		System.out.println("compressed: "+ Arrays.toString(compressed));
-		System.out.println();
 		
 		byte [] byteOutput = new byte [2*k]; 
 		for (int x = 0; x < 2*k; x=x+2)
@@ -91,11 +89,6 @@ public class LZW {
 			byteOutput[x] = (byte)(compressed[x]/256);
 
 		}
-		//Print compressed/reformatted binary
-			for(byte b: byteOutput) {
-			String s1 = String.format("%8s", Integer.toBinaryString(b & 0xFF)).replace(' ', '0');
-			System.out.println(s1);
-			}
 			
 		Path file = Paths.get("output.byte");
 		Files.write(file, byteOutput);
@@ -109,10 +102,8 @@ public class LZW {
 		Path fileName = Path.of(filename);
 		byte[] readByteArray = Files.readAllBytes(fileName);
 		//Print compressed/reformatted binary
-		System.out.println("Read in ByteArray");
 		for(byte b: readByteArray) {
 		String s1 = String.format("%8s", Integer.toBinaryString(b & 0xFF)).replace(' ', '0');
-		System.out.println(s1);
 		}
 		
 		System.out.println("Read byteArray: " + Arrays.toString(readByteArray));
