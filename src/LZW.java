@@ -47,7 +47,7 @@ public class LZW {
 	public String compress () throws UnsupportedEncodingException, FileNotFoundException, IOException
 	{
 		String output = ""; 
-		int [] compressed = new int [80000]; 
+		int [] compressed = new int [80000]; //80000 is the maximum amount of entries here
 		int k = 0; 
 		int i = 0; 
 		int j = 2; 
