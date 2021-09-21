@@ -80,7 +80,10 @@ public class LZW {
 					j++; 
 				}
 			}
-
+			if(k == compressed.length)
+			{
+				throw new UnsupportedEncodingException();
+			}
 		}
 		
 		byte [] byteOutput = new byte [2*k]; 
