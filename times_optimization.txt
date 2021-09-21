@@ -1,1 +1,3 @@
-46431427 nanoseconds
+Before with LZW-file3.txt (encoder array large enough to measure stuff, decoder takes in a small array, so time is inaccurate): 203361036 nanoseconds
+
+After changing ArrayList to HashMap in Encoder with LZW-file.txt: 196759228 nanoseconds

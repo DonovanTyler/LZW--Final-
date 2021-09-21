@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 public class LZW {
 
-	private ArrayList <String>  dictionary = new ArrayList(1030) ; 
+	private HashMap <String, Integer>  dictionary = new HashMap<String, Integer>(); 
 	private String txt; 
 
 	// reads a text file into a String and returns that String, throws an error if file cannot be inputed 
@@ -37,7 +37,7 @@ public class LZW {
 		generateString(fileName); 
 		for (int i = 0; i < 256; i++)
 		{
-			dictionary.add("" + (char)i); 
+			dictionary.put("" + (char)i, i); 
 		}
 	}
 
@@ -46,17 +46,17 @@ public class LZW {
 	public String compress () throws UnsupportedEncodingException, FileNotFoundException, IOException
 	{
 		String output = ""; 
-		int [] compressed = new int [150]; 
+		int [] compressed = new int [80000]; 
 		int k = 0; 
 		int i = 0; 
 		int j = 2; 
 		while (txt.length() != 0)
 		{
-			if (txt.length() <= i+j && dictionary.contains(txt.substring (i,txt.length())))
+			if (txt.length() <= i+j && dictionary.containsKey(txt.substring (i,txt.length())))
 			{
 				output += (txt.substring(i, txt.length()));
 			
-				int comp =  dictionary.indexOf(txt.substring (i,txt.length())); 
+				int comp =  dictionary.get(txt.substring (i,txt.length())); 
 				compressed[k] = comp; 
 				k++; 
 				txt = ""; 
@@ -64,11 +64,11 @@ public class LZW {
 			else
 			{
 				String input = txt.substring(i,i+j); 
-				if (!dictionary.contains(input))
+				if (!dictionary.containsKey(input))
 				{
-					dictionary.add(input); 
+					dictionary.put(input, dictionary.size()); 
 					output += (txt.substring(i, i+j-1)); 
-					int comp = (dictionary.indexOf(txt.substring(i, i+j-1))); 
+					int comp = (dictionary.get(txt.substring(i, i+j-1))); 
 					compressed[k] = comp; 
 					k++;
 					txt = txt.substring(j-1,txt.length()); 

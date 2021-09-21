@@ -7,7 +7,7 @@ public class TesterLZW {
 	public static void main(String [] args) throws IOException 
 	{
 		long startTime = System.nanoTime();
-		LZW john = new LZW ("smalltest.txt"); 
+		LZW john = new LZW ("lzw-file3.txt"); 
 		String compressed = john.compress(); 
 	
 		//System.out.println(john.decompressFromByteFile("output.byte"));
