@@ -5,3 +5,5 @@ After changing ArrayList to HashMap in Encoder with LZW-file3.txt: 196759228 nan
 After removing all of the System.out.println statements for binary (read from LZW-file3.txt): 41862071 nanoseconds
 
 NOTE: for all three of the above times, decode did not write to a file yet
+
+After all the changes + writing to a file, this is the final time: 45136410 nanoseconds
