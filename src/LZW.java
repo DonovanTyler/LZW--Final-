@@ -23,6 +23,7 @@ public class LZW {
 
 	private HashMap <String, Integer>  dictionary = new HashMap<String, Integer>(); 
 	private String txt; 
+	private final int MAX_ENTRY_AMOUNT = 80000;
 
 	// reads a text file into a String and returns that String, throws an error if file cannot be inputed 
 	private void generateString (String fileNamer) throws IOException
@@ -47,7 +48,7 @@ public class LZW {
 	public String compress () throws UnsupportedEncodingException, FileNotFoundException, IOException
 	{
 		String output = ""; 
-		int [] compressed = new int [80000]; //80000 is the maximum amount of entries here
+		int [] compressed = new int [MAX_ENTRY_AMOUNT]; //80000 is the maximum amount of entries here
 		int k = 0; 
 		int i = 0; 
 		int j = 2; 
@@ -80,7 +81,7 @@ public class LZW {
 					j++; 
 				}
 			}
-			if(k == compressed.length)
+			if(k == MAX_ENTRY_AMOUNT)
 			{
 				throw new UnsupportedEncodingException();
 			}
